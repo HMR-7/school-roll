@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="shortcut icon" href="/public/image/school.ico" />
+    <link rel="stylesheet" href="/public/css/stu.css">
+    <link rel="stylesheet" href="/public/css/layui.css" media="all">
+    <script src="/public/js/layui.js"></script>
+    <script src="/public/js/jQuery.mini.js"></script>
+    <script src="/public/js/stu.js"></script>
+    <script>
+        layui.use('element', function () {
+            var element = layui.element;
+            //一些事件监听
+        });
+    </script>
+</head>
+
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">学籍管理系统</div>
+            <!-- 头部区域（可配合layui已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="stu">首页</a></li>
+                <li class="layui-nav-item"><a href="stu">学生管理</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">学校信息</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">学校首页</a></dd>
+                        <dd><a href="">学校地址</a></dd>
+                        <dd><a href="">联系方式</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="/public/image/admin.png" class="layui-nav-img">
+                        <%=usInfoName%>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">基本资料</a></dd>
+                        <dd><a href="">安全设置</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="login">退出登陆</a></li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">学院专业库</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="bank">工学院</a></dd>
+                            <dd><a href="">商学院</a></dd>
+                            <dd><a href="">葡萄酒学院</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"><a href="http://www.ujnpl.com/">学校首页</a></li>
+                    <li class="layui-nav-item"><a href="">学校信息</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <table class="table" id="mytable">
+                <thead>
+                    <tr>
+                        <th><img src="/public/image/id_card.png"> 身份证号</th>
+                        <th><img src="/public/image/user_name.png"> 所属院校</th>
+                        <th><img src="/public/image/user_pwd.png"> 所属专业</th>
+                        <th><img src="/public/image/real_name.png">学生姓名</th>
+                        <th><img src="/public/image/live.png">是否在校</th>
+                        <th>状态</th>
+                        <th><img src="/public/image/edit.png"> 操作
+                            <input type="checkbox" value="添加" class="btn-into" id="check" onchange="into()">
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody id="listTable">
+                    <tr>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- 添加新的学生信息 -->
+            <div id="New">
+                <form name="stu_form" id="myform" style="margin-left: 55px;">
+                    <table class="newtable">
+                        <tr>
+                            <!--身份证号 -->
+                            <td align="center"><input type="text" name="student_card" id="card" placeholder="身份证号" />
+                                <span id="showMsg" style="color: red; font-size: 15px;"></span></td>
+                            <!-- 用户名 -->
+                            <td align="center"><input type="text" name="user_name" id="name" placeholder="所属院校"
+                                    value="<%=usInfoName%>" disabled="disabled" /></td>
+                            <!--密码 -->
+                            <td align="center"><input type="text" name="user_pwd" id="pwd" placeholder="所属专业" /></td>
+                            <!--学生真实姓名-->
+                            <td align="center"><input type="text" name="real_name" id="real" placeholder="学生真实姓名" />
+                            </td>
+                            <!-- 是否在校 -->
+                            <td align="center"><input type="text" name="live_now" id="live" placeholder="是否在校" /></td>
+                            <td colspan="2" align="center">
+                                <input type="reset" value="重置" class="btn-primary" />
+                                <input type="button" value="添加" class="btn-success" id="add-btn" />
+                                <input type="button" value="更新" class="btn-update" id="relup-btn" />
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <!-- 底部固定区域 -->
+        <div class="layui-footer">
+            欢迎登录
+        </div>
+
+    </div>
+    <script>
+        $(function () {
+            ReferData();
+            CheckCard();
+            InsertData();
+            UpSuccess();
+        });
+    </script>
+</body>
+
+</html>

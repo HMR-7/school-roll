@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>专业库</title>
+    <link rel="shortcut icon" href="/public/image/school.ico" />
+    <link rel="stylesheet" href="/public/css/bank.css">
+    <link rel="stylesheet" href="/public/css/layui.css" media="all">
+    <script src="/public/js/layui.js"></script>
+    <script src="/public/js/jQuery.mini.js"></script>
+    <script src="/public/js/bank.js"></script>
+    <script>
+        layui.use('element', function () {
+            var element = layui.element
+            //一些事件监听
+            element.on('tab(demo)', function (data) {
+                console.log(data);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="layui-layout layui-layout-admin">
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <div class="layui-header">
+            <div class="layui-logo">学籍管理系统</div>
+            <ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="stu">首页</a></li>
+                <li class="layui-nav-item"><a href="">学生管理</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">学校信息</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">学校首页</a></dd>
+                        <dd><a href="">学校地址</a></dd>
+                        <dd><a href="">联系方式</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="/public/image/admin.png" class="layui-nav-img">
+                        <%=usInfoName%>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">基本资料</a></dd>
+                        <dd><a href="">安全设置</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="login">退出登陆</a></li>
+            </ul>
+        </div>
+        <div class="layui-side layui-bg-black">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <div class="layui-side-scroll">
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">学院专业库</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="bank">工学院</a></dd>
+                            <dd><a href="">商学院</a></dd>
+                            <dd><a href="">葡萄酒学院</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"><a href="">学校首页</a></li>
+                    <li class="layui-nav-item"><a href="">学校信息</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 网页部分，主体区域 -->
+        <div class="layui-body">
+            <table class="table" id="mytable" border="1">
+                <thead>
+                    <tr>
+                        <th>
+                            专业编号
+                        </th>
+                        <th>
+                            计算机专业
+                            <input type="checkbox" value="添加" class="btn-into" id="check" onchange="into()">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="listTable" align="center">
+
+                </tbody>
+            </table>
+            <div id="Addform">
+                <form name="bank_form" id="myform">
+                    <table>
+                        <tr>
+                            <th>专业名称</th>
+                            <td><input type="text" id="name" />
+                                <span id="showMsg" style="color: red"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="button" value="确定" id="btn-success" />
+                                <input type="reset" value="重置" id="btn-primary" />
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            欢迎登录
+        </div>
+    </div>
+</body>
+
+</html>

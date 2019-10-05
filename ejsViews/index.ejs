@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录页</title>
+    <link rel="shortcut icon" href="/public/image/school.ico" />
+    <link rel="stylesheet" href="/public/css/index.css">
+    <link rel="stylesheet" href="/public/css/layui.css" media="all">
+    <script src="/public/js/jQuery.mini.js"></script>
+    <script src="/public/js/index.js"></script>
+</head>
+<body>
+    <button class="layui-btn layui-btn-sm layui-btn-radius layui-btn-danger" id="skip"><b>省级登录入口</b></button>
+    <div id="all">
+        <div id="header"><b><span>学籍管理系统</span></b></div>
+        <!-- 登录页面 -->
+        <div id="login">
+            <form name="form1" id="myform1" class="login-form" target="_blank" method="post">
+                <input class="logon-box" type="text" id="log-user" name="user" placeholder="学校名称">
+                <input class="logon-box" type="password" id="log-pwd" name="pwd" placeholder="密码">
+                <input class="login-btn" id="log-btn" type="button" value="登陆">
+                <input class="register-btn" type="button" value="注册">
+            </form>
+        </div>
+        <!-- 注册页面 -->
+        <div id="register">
+            <form name="form2" id="myform2" class="login-form" target="_blank" method="post">
+                <!-- <input class="logon-box" id="reg-box" type="text" name="school" placeholder="学校名称-必须由汉字组成">
+                <span id="showMsg" style="color: red"></span> -->
+                <input class="logon-box" type="text" id="reg-user" name="user1" placeholder="用户名-字母开头,5-16字符">
+                <span id="showMsg" style="color: red"></span>
+                <input class="logon-box" type="password" id="reg-pwd" name="pwd1" placeholder="密码-字母开头,5-16字符,允许下划线">
+                <input class="direct-btn" type="button" value="直接登陆">
+                <input class="success-btn" id="reg-btn" type="button" value="完成注册">
+            </form>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            SchoolChecking();
+            AddNewSchool();
+            LoginSuccess();
+            $('#skip').click(function () {
+                window.location.href = '/login_pro'
+            })
+        });
+    </script>
+</body>
+
+</html>

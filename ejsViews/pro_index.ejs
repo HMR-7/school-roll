@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>省级-登录页</title>
+    <link rel="shortcut icon" href="/public/image/proschool.ico" />
+    <link rel="stylesheet" href="/public/css/index.css">
+    <link rel="stylesheet" href="/public/css/layui.css" media="all">
+    <script src="/public/js/jQuery.mini.js"></script>
+    <script src="/public/js/pro_index.js"></script>
+</head>
+
+<body>
+    <button class="layui-btn layui-btn-sm layui-btn-radius layui-btn-danger" id="skip"><b>校级登录入口</b></button>
+    <div id="all">
+        <div id="header"><b><span>学籍管理-省</span></b></div>
+        <!-- 登录页面 -->
+        <div id="login">
+            <form name="form1" id="myform1" class="login-form" target="_blank" method="post">
+                <input class="logon-box" type="text" id="log-user" name="user" placeholder="省级名称">
+                <input class="logon-box" type="password" id="log-pwd" name="pwd" placeholder="密码">
+                <input class="login-btn" id="pro-login" type="button" value="登陆">
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        $(function () {
+            login()
+            $('#skip').click(function () {
+                window.location.href = '/login'
+            })
+        });
+    </script>
+</body>
+
+</html>
